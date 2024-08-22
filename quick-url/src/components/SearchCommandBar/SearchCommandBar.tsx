@@ -4,7 +4,7 @@ interface SearchBarProps {
   onSearch: (query: string) => void;
 }
 
-const SearchBar = (props: SearchBarProps) => {
+const SearchCommandBar = (props: SearchBarProps) => {
   const { onSearch } = props;
   const [query, setQuery] = useState('');
 
@@ -26,4 +26,4 @@ const SearchBar = (props: SearchBarProps) => {
   );
 };
 
-export default SearchBar;
+export default SearchCommandBar;
