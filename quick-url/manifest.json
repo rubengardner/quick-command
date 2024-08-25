@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Quick URL",
+  "version": "1.0",
+  "description": "Access your favorite URLs quickly.",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "open_popup": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "Open the Quick URL popup"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "activeTab"
+  ]
+}
