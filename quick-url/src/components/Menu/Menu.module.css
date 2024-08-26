@@ -1,0 +1,46 @@
+.menuContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.navbar {
+    display: flex;
+    width: 100%;
+    background-color: #333;
+    justify-content: center;
+    border-bottom: 1px solid #444;
+    border-radius: 10px;
+}
+
+.navbar button {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+    outline: none;
+}
+
+.navbar button:hover {
+    background-color: #555;
+}
+
+.navbar .active {
+    background-color: #3f51b5;
+    color: #fff;
+}
+
+.content {
+    overflow-y: auto;
+    background-color: #2e2e2e;
+}
