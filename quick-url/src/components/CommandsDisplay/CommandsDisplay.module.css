@@ -1,47 +1,48 @@
 .container {
-  font-family: 'Arial', sans-serif;
-  background-color: #003049;
-  border: 5px solid #669bbc;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  max-width: 400px;
-  margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+    background-color: #003049;
+    border: 5px solid #669bbc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 0 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    height: 150px
 }
 
 .title {
-  font-size: 1.5em;
-  color: #fdf0d5;
-  margin-bottom: 15px;
-  text-align: center;
+    font-size: 14pt;
+    color: #fdf0d5;
+    margin-bottom: 15px;
+    text-align: center;
 }
 
 
 .commandList {
-  list-style: none;
-  padding: 0;
+    list-style: none;
+    padding: 0;
 }
 
 .commandItem {
-  background-color: #669bbc;
-  padding: 10px;
-  border: 1px solid #f8f9fa;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 8px;
-  margin: 5px;
-  text-align: center;
+    background-color: #669bbc;
+    padding: 10px;
+    border: 1px solid #f8f9fa;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    margin: 5px;
+    text-align: center;
 }
 
 .commandItem a {
-  text-decoration: none;
-  color: #003049;
-  text-align: center;
+    text-decoration: none;
+    color: #003049;
+    text-align: center;
 }
 
 .commandItem:hover {
-  background-color: #f8f9fa;
-  color: #669bbc;
+    background-color: #f8f9fa;
+    color: #669bbc;
 }
 
 /*.commandItem:nth-child(odd) {*/

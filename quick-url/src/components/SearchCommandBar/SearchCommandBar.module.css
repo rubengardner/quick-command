@@ -1,14 +1,16 @@
 
 .searchBar {
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
 }
 
 .searchInput {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #669bbc;
-  border-radius: 5px;
-  font-size: 1em;
+    width: 100%;
+    padding: 2px;
+    border: 1px solid #669bbc;
+    border-radius: 5px;
+    font-size: 10pt;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
 }
