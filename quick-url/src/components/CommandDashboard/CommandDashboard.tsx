@@ -13,7 +13,7 @@ interface MenuProps {
     commands: Command[];
 }
 
-const Menu = (props: MenuProps) => {
+const CommandDashboard = (props: MenuProps) => {
     const {commands} = props;
     const [filteredCommands, setFilteredCommands] = useState(commands);
     const [editingCommand, setEditingCommand] = useState<Command | null>(null);
@@ -62,4 +62,4 @@ const Menu = (props: MenuProps) => {
     );
 };
 
-export default Menu;
+export default CommandDashboard;
