@@ -2,13 +2,7 @@ import React, {useState} from 'react';
 import styles from './Menu.module.css';
 import Terminal from '../Terminal/Terminal';
 import CommandDashboard from "../CommandDashboard/CommandDashboard";
-
-interface Command {
-    id: string;
-    name: string;
-    url: string;
-    shortcut: string;
-}
+import {Command} from "../../commands/commandTypes";
 
 interface MenuProps {
     commands: Command[];

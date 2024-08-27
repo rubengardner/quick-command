@@ -1,13 +1,7 @@
 import SearchCommandBar from "../SearchCommandBar/SearchCommandBar";
 import styles from "./CommandsDisplay.module.css";
+import {Command} from "../../commands/commandTypes";
 
-
-interface Command {
-    id: string;
-    name: string;
-    url: string;
-    shortcut: string;
-}
 
 interface CommandsDisplayProps {
     commands: Command[];
@@ -25,15 +19,28 @@ const CommandsDisplay = (props: CommandsDisplayProps) => {
             <div className={styles.searchBar}>
                 <SearchCommandBar onSearch={onSearch}/>
             </div>
-            <ul className={styles.commandList}>
+            <table className={styles.commandTable}>
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Shortcut</th>
+                    <th>Type</th>
+                </tr>
+                </thead>
+                <tbody>
                 {commands.map((command) => (
-                    <li onClick={() => onEdit(command)} key={command.id} className={styles.commandItem}>
-            <span>
-              {command.name} ({command.shortcut})
-            </span>
-                    </li>
+                    <tr onClick={() => onEdit(command)} key={command.id} className={styles.commandRow}>
+                        <td>{command.name}</td>
+                        <td>{command.shortcut}</td>
+                        <td>{command.type}</td>
+                        <td>
+                            <button>Edit</button>
+                        </td>
+                    </tr>
                 ))}
-            </ul>
+                </tbody>
+            </table>
+
         </div>
     );
 };

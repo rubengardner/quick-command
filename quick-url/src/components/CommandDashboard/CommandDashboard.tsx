@@ -1,13 +1,8 @@
 import React, {useState} from 'react';
 import EditCommand from "../EditComand/EditCommand";
 import CommandsDisplay from "../CommandsDisplay/CommandsDisplay";
+import {Command} from "../../commands/commandTypes";
 
-interface Command {
-    id: string;
-    name: string;
-    url: string;
-    shortcut: string;
-}
 
 interface MenuProps {
     commands: Command[];
