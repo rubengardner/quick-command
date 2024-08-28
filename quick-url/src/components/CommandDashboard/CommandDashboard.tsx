@@ -34,9 +34,6 @@ const CommandDashboard = (props: MenuProps) => {
         setEditingCommand(null);
     };
 
-    const handleCancel = () => {
-        setEditingCommand(null);
-    };
 
     return (
         <div>
@@ -44,7 +41,6 @@ const CommandDashboard = (props: MenuProps) => {
                 <EditCommand
                     command={editingCommand}
                     onSave={handleSave}
-                    onCancel={handleCancel}
                 />
             ) : (
                 <CommandsDisplay
