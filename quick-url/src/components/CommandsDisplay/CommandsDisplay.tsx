@@ -33,14 +33,10 @@ const CommandsDisplay = (props: CommandsDisplayProps) => {
                         <td>{command.name}</td>
                         <td>{command.shortcut}</td>
                         <td>{command.type}</td>
-                        <td>
-                            <button>Edit</button>
-                        </td>
                     </tr>
                 ))}
                 </tbody>
             </table>
-
         </div>
     );
 };
