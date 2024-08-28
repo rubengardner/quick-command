@@ -1,0 +1,68 @@
+.container {
+    font-family: 'Arial', sans-serif;
+    color: #fdf0d5;
+}
+
+.title {
+    font-size: 14pt;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #fdf0d5;
+}
+
+.field {
+    margin-bottom: 5px;
+}
+
+.backArrow {
+    cursor: pointer;
+    font-size: 24px;
+    color: #fdf0d5;
+    margin-right: 10px;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 10pt;
+}
+
+.input {
+    width: 80%;
+    padding: 4px;
+    font-size: 10pt;
+    border-radius: 4px;
+    border: 1px solid #669bbc;
+    background-color: #1e1e1e;
+    color: #fdf0d5;
+}
+
+.input:focus {
+    border-color: #3f51b5;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.saveButton, .cancelButton {
+    padding: 10px;
+    font-size: 10pt;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-bottom: 10px;
+}
+
+.saveButton {
+    background-color: #003049;
+    color: #fdf0d5;
+    border: 1px solid #669bbc;
+}
+
+.saveButton:hover {
+    background-color: #669bbc;
+}

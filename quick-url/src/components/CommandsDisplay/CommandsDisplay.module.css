@@ -1,50 +1,67 @@
 .container {
     font-family: 'Arial', sans-serif;
-    background-color: #003049;
-    border: 5px solid #669bbc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 0 20px;
-    max-width: 400px;
-    margin: 0 auto;
-    height: 150px
+    margin: 10px auto;
 }
 
 .title {
     font-size: 14pt;
     color: #fdf0d5;
-    margin-bottom: 15px;
     text-align: center;
+    margin-bottom: 20px;
 }
 
-
-.commandList {
-    list-style: none;
-    padding: 0;
+.searchBar {
+    margin-bottom: 10px;
 }
 
-.commandItem {
-    background-color: #669bbc;
-    padding: 10px;
-    border: 1px solid #f8f9fa;
-    justify-content: space-between;
-    align-items: center;
+.commandTable {
+    width: 100%;
+    font-size: 10pt;
+    border-collapse: collapse;
     border-radius: 8px;
-    margin: 5px;
-    text-align: center;
+    overflow: hidden;
+    background-color: #1e1e1e;
 }
 
-.commandItem a {
-    text-decoration: none;
+.commandTable thead {
+    background-color: #003049;
+}
+
+.commandTable th, .commandTable td {
+    padding: 10px;
+    text-align: left;
+    color: #fdf0d5;
+    border-bottom: 1px solid #669bbc;
+}
+
+.commandTable th {
+    font-weight: bold;
+}
+
+.commandTable tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+.commandTable tbody tr:hover {
+    background-color: #669bbc;
     color: #003049;
-    text-align: center;
 }
 
-.commandItem:hover {
-    background-color: #f8f9fa;
-    color: #669bbc;
+.commandTable button {
+    background-color: #003049;
+    color: #fdf0d5;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/*.commandItem:nth-child(odd) {*/
-/*  background-color: #f8f9fa;*/
-/*}*/
+.commandTable button:hover {
+    background-color: #fdf0d5;
+    color: #003049;
+}
+
+.commandRow {
+    cursor: pointer;
+}
