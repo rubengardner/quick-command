@@ -1,17 +1,14 @@
 import {useState} from "react";
-import styles from "../SearchCommandBar/SearchCommandBar.module.css";
 import {Command} from "../../commands/commandTypes";
-
+import styles from './EditCommand.module.css';
 
 interface EditCommandProps {
     command: Command;
     onSave: (updatedCommand: Command) => void;
-    onCancel: () => void;
 }
 
-
-const EditComamand = (props: EditCommandProps) => {
-    const {command, onSave, onCancel} = props;
+const EditCommand = (props: EditCommandProps) => {
+    const {command, onSave} = props;
     const [editedCommand, setEditedCommand] = useState(command);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -24,35 +21,39 @@ const EditComamand = (props: EditCommandProps) => {
     };
 
     return (
-        <div>
-            <h2>Edit Command</h2>
-            <label>
-                Name:
-                <input type="text" name="name" value={editedCommand.name} onChange={handleChange}/>
-            </label>
-            <label>
-                Shortcut:
-                <input type="text" name="shortcut" value={editedCommand.shortcut} onChange={handleChange}/>
-            </label>
-
-            {/* Use type narrowing to handle specific command types */}
+        <div className={styles.container}>
+            <div>
+                <h2 className={styles.title}>Edit Command</h2>
+            </div>
+            <div className={styles.field}>
+                <label className={styles.label}>Name:</label>
+                <input type="text" name="name" value={editedCommand.name} onChange={handleChange}
+                       className={styles.input}/>
+            </div>
+            <div className={styles.field}>
+                <label className={styles.label}>Shortcut:</label>
+                <input type="text" name="shortcut" value={editedCommand.shortcut} onChange={handleChange}
+                       className={styles.input}/>
+            </div>
             {editedCommand.type === 'navigate' && (
-                <label>
-                    URL:
-                    <input type="text" name="url" value={editedCommand.url} onChange={handleChange}/>
-                </label>
+                <div className={styles.field}>
+                    <label className={styles.label}>URL:</label>
+                    <input type="text" name="url" value={editedCommand.url} onChange={handleChange}
+                           className={styles.input}/>
+                </div>
             )}
             {editedCommand.type === 'copy' && (
-                <label>
-                    Text to Copy:
-                    <input type="text" name="textToCopy" value={editedCommand.textToCopy} onChange={handleChange}/>
-                </label>
+                <div className={styles.field}>
+                    <label className={styles.label}>Text to Copy:</label>
+                    <input type="text" name="textToCopy" value={editedCommand.textToCopy} onChange={handleChange}
+                           className={styles.input}/>
+                </div>
             )}
-
-            <button onClick={handleSubmit}>Save</button>
-            <button onClick={onCancel}>Cancel</button>
+            <div className={styles.buttons}>
+                <button onClick={handleSubmit} className={styles.saveButton}>Save</button>
+            </div>
         </div>
     );
 };
 
-export default EditComamand;
+export default EditCommand;
