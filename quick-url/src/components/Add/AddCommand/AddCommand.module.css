@@ -1,0 +1,95 @@
+.commandType {
+    width: 80%;
+    padding: 4px;
+    font-size: 10pt;
+    border-radius: 4px;
+    border: 1px solid #669bbc;
+    background-color: #1e1e1e;
+    color: #fdf0d5;
+}
+
+.container {
+    font-family: 'Arial', sans-serif;
+    color: #fdf0d5;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.title {
+    font-size: 16pt;
+    margin-bottom: 15px;
+    text-align: center;
+    color: #fdf0d5;
+}
+
+.field {
+    margin-bottom: 10px;
+}
+
+.backArrow {
+    cursor: pointer;
+    font-size: 24px;
+    color: #fdf0d5;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 12pt;
+}
+
+.input {
+    width: 100%;
+    padding: 8px;
+    font-size: 12pt;
+    border-radius: 4px;
+    border: 1px solid #669bbc;
+    background-color: #1e1e1e;
+    color: #fdf0d5;
+}
+
+.input:focus {
+    border-color: #3f51b5;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.saveButton {
+    padding: 10px;
+    font-size: 12pt;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #003049;
+    color: #fdf0d5;
+}
+
+.saveButton:hover {
+    background-color: #669bbc;
+}
+
+.cancelButton {
+    padding: 10px;
+    font-size: 12pt;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: #f44336;
+    color: #fdf0d5;
+}
+
+.cancelButton:hover {
+    background-color: #d32f2f;
+}
