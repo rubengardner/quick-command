@@ -1,0 +1,9 @@
+.commandType {
+    width: 80%;
+    padding: 4px;
+    font-size: 10pt;
+    border-radius: 4px;
+    border: 1px solid #669bbc;
+    background-color: #1e1e1e;
+    color: #fdf0d5;
+}
