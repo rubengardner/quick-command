@@ -1,17 +1,22 @@
+export enum CommandType {
+    Navigate = 'navigate',
+    Copy = 'copy',
+}
+
 export interface BaseCommand {
     id: string;
     name: string;
     shortcut: string;
-    type: string;
+    type: CommandType;
 }
 
 export interface NavigateCommand extends BaseCommand {
-    type: 'navigate';
+    type: CommandType.Navigate;
     url: string;
 }
 
 export interface CopyCommand extends BaseCommand {
-    type: 'copy';
+    type: CommandType.Copy;
     textToCopy: string;
 }
 
