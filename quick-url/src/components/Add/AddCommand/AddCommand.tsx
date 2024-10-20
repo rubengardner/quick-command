@@ -83,7 +83,7 @@ const AddCommand = () => {
                 fields={newCommand.fields}
                 handleFieldChange={handleFieldChange}
             />
-            <button onClick={handleSubmit}>Add Command</button>
+            <button className={styles.saveButton} onClick={handleSubmit}>Add Command</button>
         </div>
     );
 };
