@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import styles from './Menu.module.css';
 import Terminal from '../Terminal/Terminal';
 import CommandDashboard from "../CommandDashboard/CommandDashboard";
@@ -36,7 +36,7 @@ const Menu = (props: MenuProps) => {
                 </button>
             </div>
             <div className={styles.content}>
-                {activeTab === 'terminal' && <Terminal/>}
+                {activeTab === 'terminal' && <Terminal commands={commands}/>}
                 {activeTab === 'commands' && <CommandDashboard commands={commands}/>}
                 {activeTab === 'add' && <AddCommand/>}
             </div>
