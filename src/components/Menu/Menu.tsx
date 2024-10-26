@@ -2,15 +2,12 @@ import {useState} from 'react';
 import styles from './Menu.module.css';
 import Terminal from '../Terminal/Terminal';
 import CommandDashboard from "../CommandDashboard/CommandDashboard";
-import {Command} from "../../commands/commandTypes";
 import AddCommand from "../Add/AddCommand/AddCommand";
+import useGetCommands from "../../dataAccess/useGetCommands";
 
-interface MenuProps {
-    commands: Command[];
-}
 
-const Menu = (props: MenuProps) => {
-    const {commands} = props;
+const Menu = () => {
+    const commands = useGetCommands();
     const [activeTab, setActiveTab] = useState<'terminal' | 'commands' | 'add'>('terminal');
 
     return (
