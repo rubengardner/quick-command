@@ -1,12 +1,17 @@
 import React, {useState} from 'react';
 import styles from './Terminal.module.css';
 import {commandRunner} from "../../commands/commandRunner";
-import JsonCommands from '../../commands.json';
+import {Command} from "../../commands/commandTypes";
 
-const Terminal = () => {
+
+interface TerminalProps {
+    commands: Command[];
+}
+
+const Terminal = (props: TerminalProps) => {
+    const {commands} = props;
     const [input, setInput] = useState('');
     const [output, setOutput] = useState('');
-    const commands = (JsonCommands);
 
 
     const handleCommand = (commandName: string) => {
