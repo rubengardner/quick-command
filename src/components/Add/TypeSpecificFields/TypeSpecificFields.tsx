@@ -1,46 +1,39 @@
 import React from 'react';
-import {CommandType} from '../../../commands/commandTypes';
-import styles from './TypeSpecificFields.module.css';
+import {Command, CommandType} from '../../../commands/commandTypes';
 
 interface TypeSpecificFieldsProps {
-    type: CommandType;
-    fields: { [key: string]: string };
-    handleFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    commandData: Partial<Command>;
+    onFieldChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const TypeSpecificFields = (props: TypeSpecificFieldsProps) => {
-    const {type, fields, handleFieldChange} = props;
-
-    switch (type) {
-        case CommandType.Navigate:
-            return (
-                <label className={styles.label}>
+    const {commandData, onFieldChange} = props;
+    return (
+        <div>
+            {commandData.type === CommandType.Navigate && (
+                <label>
                     URL:
                     <input
-                        className={styles.input}
                         type="text"
                         name="url"
-                        value={fields.url || ''}
-                        onChange={handleFieldChange}
+                        value={commandData.url || ""}
+                        onChange={onFieldChange}
                     />
                 </label>
-            );
-        case CommandType.Copy:
-            return (
-                <label className={styles.label}>
+            )}
+            {commandData.type === CommandType.Copy && (
+                <label>
                     Text to Copy:
                     <input
-                        className={styles.input}
                         type="text"
                         name="textToCopy"
-                        value={fields.textToCopy || ''}
-                        onChange={handleFieldChange}
+                        value={commandData.textToCopy || ""}
+                        onChange={onFieldChange}
                     />
                 </label>
-            );
-        default:
-            return null;
-    }
+            )}
+        </div>
+    );
 };
 
 export default TypeSpecificFields;
