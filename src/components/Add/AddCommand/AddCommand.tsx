@@ -1,41 +1,35 @@
-import React, {useState} from 'react';
-import {CommandType} from '../../../commands/commandTypes';
+import React, { useState } from 'react';
+import {Command, CommandType} from '../../../commands/commandTypes';
 import styles from './AddCommand.module.css';
 import TypeSpecificFields from "../TypeSpecificFields/TypeSpecificFields";
-
+import useSaveCommands from "../../../dataAccess/useSaveCommands";
 
 const AddCommand = () => {
-    const [newCommand, setNewCommand] = useState({
-        id: "",
+    const saveCommands = useSaveCommands();
+    const [newCommand, setNewCommand] = useState<Partial<Command>>({
         name: "",
         shortcut: "",
         type: CommandType.Navigate,
-        fields: {},
     });
 
     const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-        const {name, value} = e.target;
-        setNewCommand({
-            ...newCommand,
-            [name]: value,
-            fields: {},
-        });
+        const { value } = e.target;
+        setNewCommand((prev) => ({
+            ...prev,
+            type: value as CommandType
+        }));
     };
 
-    const handleFieldChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const {name, value} = e.target;
-        setNewCommand({
-            ...newCommand,
-            fields: {
-                ...newCommand.fields,
-                [name]: value,
-            },
-        });
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setNewCommand((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
     };
 
     const handleSubmit = () => {
-        console.log('New command created:', newCommand);
-        // Handle form submission logic
+        saveCommands(newCommand);
     };
 
     const commandValues = Object.values(CommandType);
@@ -49,8 +43,8 @@ const AddCommand = () => {
                     className={styles.input}
                     type="text"
                     name="name"
-                    value={newCommand.name}
-                    onChange={(e) => setNewCommand({...newCommand, name: e.target.value})}
+                    value={newCommand.name || ""}
+                    onChange={handleInputChange}
                 />
             </label>
             <label className={styles.label}>
@@ -59,8 +53,8 @@ const AddCommand = () => {
                     type="text"
                     className={styles.input}
                     name="shortcut"
-                    value={newCommand.shortcut}
-                    onChange={(e) => setNewCommand({...newCommand, shortcut: e.target.value})}
+                    value={newCommand.shortcut || ""}
+                    onChange={handleInputChange}
                 />
             </label>
             <label className={styles.label}>
@@ -79,11 +73,12 @@ const AddCommand = () => {
                 </select>
             </label>
             <TypeSpecificFields
-                type={newCommand.type}
-                fields={newCommand.fields}
-                handleFieldChange={handleFieldChange}
+                commandData={newCommand}
+                onFieldChange={handleInputChange}
             />
-            <button className={styles.saveButton} onClick={handleSubmit}>Add Command</button>
+            <button className={styles.saveButton} onClick={handleSubmit}>
+                Add Command
+            </button>
         </div>
     );
 };
