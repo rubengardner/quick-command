@@ -1,10 +1,12 @@
+export type UUID = string;
+
 export enum CommandType {
     Navigate = 'navigate',
     Copy = 'copy',
 }
 
 export interface BaseCommand {
-    id: string;
+    id: UUID;
     name: string;
     shortcut: string;
     type: CommandType;
