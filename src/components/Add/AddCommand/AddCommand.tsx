@@ -3,6 +3,7 @@ import {Command, CommandType} from '../../../commands/commandTypes';
 import styles from './AddCommand.module.css';
 import TypeSpecificFields from "../TypeSpecificFields/TypeSpecificFields";
 import useSaveCommands from "../../../dataAccess/useSaveCommands";
+import {v4 as uuidv4} from 'uuid';
 
 
 interface AddCommandProps {
@@ -13,6 +14,7 @@ const AddCommand = (props: AddCommandProps) => {
     const {setActiveTab} = props;
     const saveCommands = useSaveCommands();
     const [newCommand, setNewCommand] = useState<Partial<Command>>({
+        id: uuidv4(),
         name: "",
         shortcut: "",
         type: CommandType.Navigate,
