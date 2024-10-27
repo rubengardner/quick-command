@@ -2,17 +2,15 @@ import {useState} from "react";
 import {Command} from "../../commands/commandTypes";
 import styles from './EditCommand.module.css';
 import useDeleteCommand from "../../dataAccess/useDeleteCommand";
-import useSaveCommands from "../../dataAccess/useSaveCommands";
 
 interface EditCommandProps {
     command: Command;
-    onSave: () => void;
+    onSave: (command: Command) => void;
 }
 
 const EditCommand = (props: EditCommandProps) => {
     const {command, onSave} = props;
     const deleteCommand = useDeleteCommand()
-    const saveCommand = useSaveCommands();
     const [editedCommand, setEditedCommand] = useState(command);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,8 +19,7 @@ const EditCommand = (props: EditCommandProps) => {
     };
 
     const handleSave = () => {
-        saveCommand(editedCommand);
-        onSave();
+        onSave(editedCommand);
     };
 
     const handleDelete = () => {

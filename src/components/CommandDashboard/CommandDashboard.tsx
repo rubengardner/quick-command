@@ -6,10 +6,11 @@ import {Command} from "../../commands/commandTypes";
 
 interface MenuProps {
     commands: Command[];
+    handleSave: (newCommand: Command) => void;
 }
 
 const CommandDashboard = (props: MenuProps) => {
-    const {commands} = props;
+    const {commands, handleSave} = props;
     const [filteredCommands, setFilteredCommands] = useState(commands);
     const [editingCommand, setEditingCommand] = useState<Command | null>(null);
 
@@ -26,9 +27,11 @@ const CommandDashboard = (props: MenuProps) => {
         setEditingCommand(command);
     };
 
-    const handleSave = () => {
+    const onSave = (updatedCommand: Command) => {
         setFilteredCommands(commands);
+        handleSave(updatedCommand);
         setEditingCommand(null);
+
     };
 
 
@@ -37,7 +40,7 @@ const CommandDashboard = (props: MenuProps) => {
             {editingCommand ? (
                 <EditCommand
                     command={editingCommand}
-                    onSave={handleSave}
+                    onSave={onSave}
                 />
             ) : (
                 <CommandsDisplay
