@@ -35,7 +35,7 @@ const Menu = () => {
             <div className={styles.content}>
                 {activeTab === 'terminal' && <Terminal commands={commands}/>}
                 {activeTab === 'commands' && <CommandDashboard commands={commands}/>}
-                {activeTab === 'add' && <AddCommand/>}
+                {activeTab === 'add' && <AddCommand setActiveTab={setActiveTab}/>}
             </div>
         </div>
     );
