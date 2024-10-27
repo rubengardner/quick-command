@@ -1,14 +1,18 @@
 import {useState} from "react";
 import {Command} from "../../commands/commandTypes";
 import styles from './EditCommand.module.css';
+import useDeleteCommand from "../../dataAccess/useDeleteCommand";
+import useSaveCommands from "../../dataAccess/useSaveCommands";
 
 interface EditCommandProps {
     command: Command;
-    onSave: (updatedCommand: Command) => void;
+    onSave: () => void;
 }
 
 const EditCommand = (props: EditCommandProps) => {
     const {command, onSave} = props;
+    const deleteCommand = useDeleteCommand()
+    const saveCommand = useSaveCommands();
     const [editedCommand, setEditedCommand] = useState(command);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -16,9 +20,15 @@ const EditCommand = (props: EditCommandProps) => {
         setEditedCommand({...editedCommand, [name]: value});
     };
 
-    const handleSubmit = () => {
-        onSave(editedCommand);
+    const handleSave = () => {
+        saveCommand(editedCommand);
+        onSave();
     };
+
+    const handleDelete = () => {
+        deleteCommand(command.id)
+    }
+
 
     return (
         <div className={styles.container}>
@@ -50,7 +60,10 @@ const EditCommand = (props: EditCommandProps) => {
                 </div>
             )}
             <div className={styles.buttons}>
-                <button onClick={handleSubmit} className={styles.saveButton}>Save</button>
+                <button onClick={handleSave} className={styles.saveButton}>Save</button>
+            </div>
+            <div className={styles.buttons}>
+                <button onClick={handleDelete} className={styles.deleteButton}>Delete</button>
             </div>
         </div>
     );
