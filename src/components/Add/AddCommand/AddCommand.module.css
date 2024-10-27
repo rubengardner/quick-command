@@ -8,6 +8,29 @@
     color: #fdf0d5;
 }
 
+.animationBackground {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(144, 238, 144, 0.5);
+    opacity: 0;
+    animation: expand 1.5s forwards;
+    z-index: 1;
+}
+
+@keyframes expand {
+    from {
+        transform: scale(0);
+        opacity: 1;
+    }
+    to {
+        transform: scale(10);
+        opacity: 0;
+    }
+}
+
 .container {
     font-family: 'Arial', sans-serif;
     color: #fdf0d5;
@@ -17,6 +40,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     margin: 0 auto;
+    position: relative;
 }
 
 .title {
