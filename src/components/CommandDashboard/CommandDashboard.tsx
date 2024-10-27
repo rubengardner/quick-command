@@ -26,11 +26,8 @@ const CommandDashboard = (props: MenuProps) => {
         setEditingCommand(command);
     };
 
-    const handleSave = (updatedCommand: Command) => {
-        const updatedCommands = filteredCommands.map(cmd =>
-            cmd.id === updatedCommand.id ? updatedCommand : cmd
-        );
-        setFilteredCommands(updatedCommands);
+    const handleSave = () => {
+        setFilteredCommands(commands);
         setEditingCommand(null);
     };
 
