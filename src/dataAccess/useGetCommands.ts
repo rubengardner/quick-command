@@ -1,19 +1,16 @@
-import { useState, useEffect } from 'react';
 import {Command} from "../commands/commandTypes";
 
 const useGetCommands = () => {
-  const [commands, setCommands] = useState<Command[]>([]);
-
-  useEffect(() => {
-    // @ts-ignore
-    chrome.storage.sync.get(['commands']).then((result) => {
-      setCommands(result.commands || []);
-    }).catch((err: any) => {
-      console.error('Error fetching commands:', err);
-    });
-  }, []);
-
-  return commands;
+    return async (): Promise<Command[]> => {
+        try {
+            // @ts-ignore
+            const result = await chrome.storage.sync.get(['commands']);
+            return result.commands || [];
+        } catch (err) {
+            console.error('Error fetching commands:', err);
+            return [];
+        }
+    };
 };
 
 export default useGetCommands;

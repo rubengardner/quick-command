@@ -1,10 +1,12 @@
-import {Command} from "../commands/commandTypes";
+import {useCallback} from 'react';
 import {v4 as uuidv4} from 'uuid';
+import {Command} from "../commands/commandTypes";
 
 const useSaveCommands = () => {
-    return (newCommand: Partial<Command>) => {
-        // @ts-ignore
-        chrome.storage.sync.get(['commands']).then((result) => {
+    return useCallback(async (newCommand: Partial<Command>) => {
+        try {
+            // @ts-ignore
+            const result = await chrome.storage.sync.get(['commands']);
             const existingCommands = result.commands || [];
 
             const commandIndex = existingCommands.findIndex((cmd: Command) => cmd.id === newCommand.id);
@@ -14,22 +16,19 @@ const useSaveCommands = () => {
                 updatedCommands = [
                     ...existingCommands.slice(0, commandIndex),
                     {...existingCommands[commandIndex], ...newCommand},
-                    ...existingCommands.slice(commandIndex + 1)
+                    ...existingCommands.slice(commandIndex + 1),
                 ];
             } else {
                 updatedCommands = [...existingCommands, {...newCommand, id: newCommand.id || uuidv4()}];
             }
-            // @ts-ignore
-            chrome.storage.sync.set({commands: updatedCommands}).then(() => {
-                console.log('Command saved successfully!');
-            }).catch((err: any) => {
-                console.error('Error saving commands:', err);
-            });
 
-        }).catch((err: any) => {
-            console.error('Error fetching commands:', err);
-        });
-    };
+            // @ts-ignore
+            await chrome.storage.sync.set({commands: updatedCommands});
+            console.log('Command saved successfully!');
+        } catch (err) {
+            console.error('Error saving commands:', err);
+        }
+    }, []);
 };
 
 export default useSaveCommands;
