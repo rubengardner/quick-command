@@ -10,6 +10,7 @@ const Menu = () => {
     const [commands, setCommands] = useState<Command[]>([]);
     const [activeTab, setActiveTab] = useState<'terminal' | 'commands' | 'add'>('terminal');
     const fetchCommands = useGetCommands();
+    const [output, setOutput] = useState('');
 
     useEffect(() => {
         const fetchAllCommands = async () => {
@@ -44,9 +45,10 @@ const Menu = () => {
                 </button>
             </div>
             <div className={styles.content}>
-                {activeTab === 'terminal' && <Terminal commands={commands}/>}
-                {activeTab === 'commands' && <CommandDashboard commands={commands} setActiveTab={setActiveTab}/>}
-                {activeTab === 'add' && <AddCommand setActiveTab={setActiveTab}/>}
+                {activeTab === 'terminal' && <Terminal commands={commands} output={output} setOutput={setOutput}/>}
+                {activeTab === 'commands' &&
+                    <CommandDashboard commands={commands} setActiveTab={setActiveTab} setOutput={setOutput}/>}
+                {activeTab === 'add' && <AddCommand setActiveTab={setActiveTab} setOutput={setOutput}/>}
             </div>
         </div>
     );

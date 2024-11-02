@@ -8,10 +8,11 @@ import {v4 as uuidv4} from 'uuid';
 
 interface AddCommandProps {
     setActiveTab: React.Dispatch<React.SetStateAction<'terminal' | 'commands' | 'add'>>;
+    setOutput: (output: string) => void;
 }
 
 const AddCommand = (props: AddCommandProps) => {
-    const {setActiveTab} = props;
+    const {setActiveTab, setOutput} = props;
     const saveCommands = useSaveCommands();
     const [newCommand, setNewCommand] = useState<Partial<Command>>({
         id: uuidv4(),
@@ -40,7 +41,7 @@ const AddCommand = (props: AddCommandProps) => {
     const handleSubmit = () => {
         setIsAnimating(true);
         saveCommands(newCommand);
-
+        setOutput('Command added');
         setTimeout(() => {
             setIsAnimating(false);
             setActiveTab('terminal');

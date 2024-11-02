@@ -7,10 +7,11 @@ import useSaveCommands from "../../dataAccess/useSaveCommands";
 interface EditCommandProps {
     command: Command;
     onSave: () => void;
+    setOutput: (output: string) => void;
 }
 
 const EditCommand = (props: EditCommandProps) => {
-    const {command, onSave} = props;
+    const {command, onSave, setOutput} = props;
     const deleteCommand = useDeleteCommand()
     const [editedCommand, setEditedCommand] = useState(command);
     const saveCommands = useSaveCommands();
@@ -22,11 +23,13 @@ const EditCommand = (props: EditCommandProps) => {
 
     const handleSave = () => {
         saveCommands(editedCommand)
+        setOutput('Command saved');
         onSave();
     };
 
     const handleDelete = () => {
         deleteCommand(command.id)
+        setOutput('Command deleted');
         onSave();
 
     }

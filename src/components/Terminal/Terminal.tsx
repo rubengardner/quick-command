@@ -6,12 +6,13 @@ import {Command} from "../../commands/commandTypes";
 
 interface TerminalProps {
     commands: Command[];
+    output: string;
+    setOutput: (output: string) => void;
 }
 
 const Terminal = (props: TerminalProps) => {
-    const {commands} = props;
+    const {commands, output, setOutput} = props;
     const [input, setInput] = useState('');
-    const [output, setOutput] = useState('');
 
 
     const handleCommand = (commandName: string) => {

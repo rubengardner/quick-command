@@ -4,13 +4,14 @@ import CommandsDisplay from "../CommandsDisplay/CommandsDisplay";
 import {Command} from "../../commands/commandTypes";
 
 
-interface MenuProps {
+interface CommandDashboardProps {
     commands: Command[];
     setActiveTab: React.Dispatch<React.SetStateAction<'terminal' | 'commands' | 'add'>>;
+    setOutput: (output: string) => void;
 }
 
-const CommandDashboard = (props: MenuProps) => {
-    const {commands, setActiveTab} = props;
+const CommandDashboard = (props: CommandDashboardProps) => {
+    const {commands, setActiveTab, setOutput} = props;
     const [filteredCommands, setFilteredCommands] = useState(commands);
     const [editingCommand, setEditingCommand] = useState<Command | null>(null);
 
@@ -40,6 +41,7 @@ const CommandDashboard = (props: MenuProps) => {
                 <EditCommand
                     command={editingCommand}
                     onSave={onSave}
+                    setOutput={setOutput}
                 />
             ) : (
                 <CommandsDisplay
