@@ -21,6 +21,25 @@ const Menu = () => {
         fetchAllCommands();
     }, [fetchCommands]);
 
+    const cycleTabs = () => {
+        setActiveTab((prevTab) => {
+            if (prevTab === 'terminal') return 'commands';
+            if (prevTab === 'commands') return 'add';
+            return 'terminal'; // loops back to the start
+        });
+    };
+
+    useEffect(() => {
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Tab') {
+                event.preventDefault();
+                cycleTabs();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
 
     return (
         <div className={styles.menuContainer}>
