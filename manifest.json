@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Quick command",
+  "name": "Quick Command",
   "version": "1.0",
-  "description": "Access your favorite URLs quickly.",
+  "description": "Access your favorite commands quickly.",
   "action": {
     "default_popup": "popup.html"
   },
@@ -11,7 +11,7 @@
       "suggested_key": {
         "default": "Ctrl+Shift+Y"
       },
-      "description": "Open the Quick URL popup"
+      "description": "Open the Quick Command popup"
     }
   },
   "background": {
@@ -23,8 +23,12 @@
   ],
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
-      "js": ["src/content.js"]
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "src/index.js"
+      ]
     }
   ]
 }
