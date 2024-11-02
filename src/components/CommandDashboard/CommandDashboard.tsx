@@ -6,11 +6,11 @@ import {Command} from "../../commands/commandTypes";
 
 interface MenuProps {
     commands: Command[];
-    handleSave: (newCommand: Command) => void;
+    setActiveTab: React.Dispatch<React.SetStateAction<'terminal' | 'commands' | 'add'>>;
 }
 
 const CommandDashboard = (props: MenuProps) => {
-    const {commands, handleSave} = props;
+    const {commands, setActiveTab} = props;
     const [filteredCommands, setFilteredCommands] = useState(commands);
     const [editingCommand, setEditingCommand] = useState<Command | null>(null);
 
@@ -23,17 +23,16 @@ const CommandDashboard = (props: MenuProps) => {
         setFilteredCommands(newFilteredCommands);
     };
 
+    const onSave = () => {
+        setActiveTab('terminal');
+        setFilteredCommands(commands);
+        setEditingCommand(null);
+    };
+
+
     const handleEdit = (command: Command) => {
         setEditingCommand(command);
     };
-
-    const onSave = (updatedCommand: Command) => {
-        setFilteredCommands(commands);
-        handleSave(updatedCommand);
-        setEditingCommand(null);
-
-    };
-
 
     return (
         <div>
