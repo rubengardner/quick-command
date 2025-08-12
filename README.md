@@ -4,6 +4,8 @@
 
 Quick-Command is a sleek browser extension that lets you save your most-used URLs as quick-access commands. Think: GitHub, docs, dashboards—open them instantly via keyboard or command palette, saving you clicks and time.
 
+<img width="2392" height="898" alt="image" src="https://github.com/user-attachments/assets/4c3f9ad7-b3d8-43ef-8827-663e5afc12bd" />
+
 ---
 
 ##  Why I Built This
@@ -32,13 +34,47 @@ Quick-Command is a sleek browser extension that lets you save your most-used URL
 
 ---
 
-##  Quick Start
+ ## How It Looks & Feels — Sleek, Minimal, and Fast
 
-1. Clone the repo
-2. Go to your browser's Extensions page
-3. Enable “Developer mode”
-4. Load the unpacked extension from the project directory
-5. Open the popup and start adding your fave URLs!
+Quick-Command isn’t just functional — it’s designed to feel smooth, modern, and enjoyable to use.  
+Every interaction is supported by subtle animations that make command execution feel instant and satisfying.
+
+---
+
+### **Landing Page**
+<img width="1610" height="786" alt="image" src="https://github.com/user-attachments/assets/c30cdb18-601a-4712-9f7e-62f04797fbc9" />
+The clean home screen gives you an at-a-glance view of your saved commands — easy to scan, easy to launch.
+
+---
+
+### **Command Menu**
+<img width="962" height="676" alt="image" src="https://github.com/user-attachments/assets/e6a4c373-3473-4557-8d79-30510da7866d" />
+Summon the command palette with a single shortcut and type to instantly find and execute any saved command.
+
+---
+
+### **Add Command Tab**
+<img width="1040" height="1018" alt="image" src="https://github.com/user-attachments/assets/55c9d667-120d-4e3b-89d4-d2eb95d34caa" />
+Adding a new command is effortless — give it a name, paste the URL, and it’s ready to use in seconds.
+
+---
+
+✨ **Bonus:** Quick-Command includes smooth animations for menu transitions and feedback, so using it feels as good as it looks.
+
+
+
+## Quick Start — Get Up and Running in Minutes
+
+1. **Clone this repository** to your local machine.  
+2. **Open your browser’s Extensions page**  
+   - Chrome: `chrome://extensions/`  
+   - Edge: `edge://extensions/`  
+   - (Firefox support coming soon!)
+3. **Enable “Developer mode”** in the top-right corner.  
+4. **Click “Load unpacked”** and select the project folder you just cloned.  
+5. **Launch the popup** and start adding your favorite URLs as commands — you’ll be flying between sites in no time.
+
+💬 If you’d like to try Quick-Command but run into setup issues, I’m happy to help! Just open an issue in this repo or reach out — I want to see more people using it.
 
 ---
 
@@ -47,7 +83,6 @@ Quick-Command is a sleek browser extension that lets you save your most-used URL
 | Command | URL                          | Use Case                           |
 |---------|------------------------------|------------------------------------|
 | `gh`    | `https://github.com`         | Jump to GitHub home instantly      |
-| `ci`    | `https://circleci.com`       | Open build status with one command |
 | `nt`    | Internal docs link           | Fetch your docs in a flash         |
 
 ---
@@ -78,5 +113,5 @@ Check the [issues](#) to see what's on the roadmap or let’s talk ideas.
 
 ##  License
 
-MIT © Your Name — feel free to use and customize Quick-Command however you like!
+MIT © Ruben David Gardner Cuesta — feel free to use and customize Quick-Command however you like!
 
