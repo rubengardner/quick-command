@@ -68,9 +68,6 @@ Adding a new command is effortless — give it a name, paste the URL, and it’s
 1. **Clone this repository** to your local machine.  
 2. **Open your browser’s Extensions page**  
    - Chrome: `chrome://extensions/`  
-   - Edge: `edge://extensions/`  
-   - (Firefox support coming soon!)
-3. **Enable “Developer mode”** in the top-right corner.  
 4. **Click “Load unpacked”** and select the project folder you just cloned.  
 5. **Launch the popup** and start adding your favorite URLs as commands — you’ll be flying between sites in no time.
 
