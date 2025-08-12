@@ -28,9 +28,9 @@ Quick-Command is a sleek browser extension that lets you save your most-used URL
 
 1. **Manifest**: Defines browser permissions, command configurations, and UI entry points (`manifest.json`)
 2. **Command Manager**: Lets users assign names and URLs to commands
-3. **Popup UI**: Type a command name to open its URL (autocomplete-enabled)
+3. **Popup UI**: Type a command name to open its URL
 4. **Keyboard Shortcut**: Launch the command palette with one keystroke, then type and hit `Enter`
-5. **Storage**: Uses browser `storage.sync` (or `storage.local`) to remember your defined commands across sessions
+5. **Storage**: Uses browser `storage.local`
 
 ---
 
@@ -84,7 +84,6 @@ Adding a new command is effortless — give it a name, paste the URL, and it’s
 ##  Contribute
 
 Love the idea? Want to add a feature or fix a bug? PRs are absolutely welcomed!  
-Check the [issues](#) to see what's on the roadmap or let’s talk ideas.
 
 ---
 
