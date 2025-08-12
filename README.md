@@ -75,27 +75,7 @@ Adding a new command is effortless — give it a name, paste the URL, and it’s
 
 ---
 
-##  Example Use Cases
-
-| Command | URL                          | Use Case                           |
-|---------|------------------------------|------------------------------------|
-| `gh`    | `https://github.com`         | Jump to GitHub home instantly      |
-| `nt`    | Internal docs link           | Fetch your docs in a flash         |
-
----
-
-##  Why It Stands Out
-
-- **Improves developer flow**—no more tab clutter or hunting through bookmarks.
-- **Customization first**—you define commands that match *your* work style.
-- **Easy to share**—include your command definitions in your dotfiles or team toolkits.
-
----
-
 ##  Future Enhancements
-
-- Command aliases & lookup fuzzy search
-- Categorization or tagging of commands
 - Cross-browser support (Firefox, Edge, etc.)
 - Command export/import for easy configuration sharing
 
